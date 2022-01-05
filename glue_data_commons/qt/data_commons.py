@@ -24,9 +24,11 @@ class DataCommonsDialog(QtWidgets.QDialog):
                           directory=os.path.dirname(__file__))
         self._connections = autoconnect_callbacks_to_qt(self.state, self.ui)
 
+
+        print(self._connections)
         self._collect = collect
 
-        i#f default is not None:
+        #if default is not None:
          #   self.state.data = default
 
         self.ui.button_ok.clicked.connect(self.accept)
@@ -36,25 +38,25 @@ class DataCommonsDialog(QtWidgets.QDialog):
         """
         """
         USA = 'country/USA'
-        if self.state.places == 'us_states':
+        if self.state.places_att == 'us_states':
             states = dcp.get_places_in([USA], 'State')[USA]
             places = states
-        elif self.state.places == 'us_counties':
+        elif self.state.places_att == 'us_counties':
             counties = dcp.get_places_in([USA], 'County')[USA]
             places = counties
-        elif self.state.places == 'us_cities':
+        elif self.state.places_att == 'us_cities':
             cities = dcp.get_places_in([USA], 'City')[USA]
             places = cities
             
-        stats_vars = [self.state.var1,self.state.var2,self.state.var3]
-        df = dcp.dc.build_multivariate_dataframe(places, stats_vars)
+        stats_vars = [self.state.var1_att,self.state.var2_att,self.state.var3_att]
+        df = dcp.build_multivariate_dataframe(places, stats_vars)
         def add_name_col(df):
             # Add a new column called name, where each value is the name for the place dcid in the index.
             df['name'] = df.index.map(dcp.get_property_values(df.index, 'name'))
             # Keep just the first name, instead of a list of all names.
             df['name'] = df['name'].str[0]
         add_name_col(df)
-        self.data_collection[self.state.places] = df
+        self._collect[self.state.places_att] = df
 
 
     @classmethod

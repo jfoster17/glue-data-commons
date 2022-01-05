@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GetDataCommonsData</class>
- <widget class="QDialog" name="GetDataCommonsData">
+ <class>DataCommons</class>
+ <widget class="QDialog" name="DataCommons">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    <item row="0" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
-      <widget class="QComboBox" name="combosel_exp_att">
+      <widget class="QComboBox" name="combosel_places_att">
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToMinimumContentsLength</enum>
        </property>
@@ -40,7 +40,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QComboBox" name="var1_att">
+    <widget class="QComboBox" name="combosel_var1_att">
      <property name="sizeAdjustPolicy">
       <enum>QComboBox::AdjustToMinimumContentsLength</enum>
      </property>
@@ -56,7 +56,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="var2_att">
+      <widget class="QComboBox" name="combosel_var2_att">
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToMinimumContentsLength</enum>
        </property>
@@ -74,7 +74,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="var3_att">
+      <widget class="QComboBox" name="combosel_var3_att">
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToMinimumContentsLength</enum>
        </property>
